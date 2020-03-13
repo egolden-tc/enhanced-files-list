@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Enhanced Files" icon-name="standard:file" variant="base">
+
+        <lightning-file-upload slot="actions" name="fileUploader" accept={acceptedFormats} record-id={recordId}
+            onuploadfinished={handleUploadFinished} multiple>
+        </lightning-file-upload>
+
+
+        <lightning-datatable columns={columns} data={data} key-field="id" hide-checkbox-column="true"
+            show-row-number-column="true"></lightning-datatable>
+
+
+
+        <div class="slds-border_top">
+            <span class="slds-align_absolute-center slds-p-top_small" onclick={viewAll} style="cursor:pointer">
+                <a>{footerText}</a>
+                &nbsp;
+                <lightning-badge label={imageBadge}></lightning-badge>
+
+            </span>
+        </div>
+
+    </lightning-card>
+
+</template>
