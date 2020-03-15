@@ -4,8 +4,14 @@
     <masterLabel>Enhanced Files List</masterLabel>
     <isExposed>true</isExposed>
     <targets>
-	<target>lightning__AppPage</target>
-	<target>lightning__RecordPage</target>
-	<target>lightning__HomePage</target>
+	    <target>lightning__AppPage</target>
+	    <target>lightning__RecordPage</target>
+	    <target>lightning__HomePage</target>
 </targets>
+<targetConfigs>
+    <targetConfig targets="lightning__RecordPage">
+     <property name="icon" type="String" label="Icon" default="standard:file"/>
+      <property name="uploadFiles" type="Boolean" label="Display Upload Files Button" default="false" />
+    </targetConfig>
+</targetConfigs>
 </LightningComponentBundle>

@@ -8,6 +8,9 @@ import getRelatedFilesByRecordId from '@salesforce/apex/FilesListController.getR
 import {
     ShowToastEvent
 } from 'lightning/platformShowToastEvent';
+import {
+    NavigationMixin
+} from 'lightning/navigation';
 
 //Datatable Columns
 
@@ -37,12 +40,16 @@ const columns = [{
 }];
 
 
-export default class Test extends LightningElement {
+export default class filesList extends NavigationMixin(LightningElement) {
     @track data = [];
     @track columns = columns;
 
+
     @api recordId;
     @api footerText = 'View All';
+    @api icon;
+    @api uploadFiles;
+    @api objectApiName;
 
 
     @wire(getRelatedFilesByRecordId, {
@@ -88,6 +95,18 @@ export default class Test extends LightningElement {
             message: `Image(s) have been uploaded`,
             variant: 'success',
         }));
+    }
+
+    viewAll() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordRelationshipPage',
+            attributes: {
+                recordId: this.recordId,
+                objectApiName: this.objectApiName,
+                relationshipApiName: 'AttachedContentDocuments',
+                actionName: 'view'
+            },
+        });
     }
 
 }

@@ -1,9 +1,11 @@
 <template>
-    <lightning-card title="Enhanced Files" icon-name="standard:file" variant="base">
+    <lightning-card title="Enhanced Files" icon-name={icon} variant="base">
 
-        <lightning-file-upload slot="actions" name="fileUploader" accept={acceptedFormats} record-id={recordId}
-            onuploadfinished={handleUploadFinished} multiple>
-        </lightning-file-upload>
+        <template if:true={uploadFiles}>
+            <lightning-file-upload slot="actions" name="fileUploader" accept={acceptedFormats} record-id={recordId}
+                onuploadfinished={handleUploadFinished} multiple>
+            </lightning-file-upload>
+        </template>
 
 
         <lightning-datatable columns={columns} data={data} key-field="id" hide-checkbox-column="true"
