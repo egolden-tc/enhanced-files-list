@@ -8,20 +8,22 @@
         </template>
 
 
-        <lightning-datatable columns={columns} data={files} key-field="id" hide-checkbox-column="true"
-            show-row-number-column="true"></lightning-datatable>
+        <lightning-datatable columns={columns} data={visibleFiles} key-field="id" hide-checkbox-column="true"
+            show-row-number-column="true" default-sort-direction={defaultSortDirection} sorted-direction={sortDirection}
+            sorted-by={sortedBy} onsort={onHandleSort}>
+        </lightning-datatable>
 
 
+        <template if:true={showFooter}>
+            <div class="slds-border_top">
+                <span class="slds-align_absolute-center slds-p-top_small" onclick={viewMore} style="cursor:pointer">
+                    <a>{footerText}</a>
+                    &nbsp;
+                    <lightning-badge label={imageBadge}></lightning-badge>
 
-        <div class="slds-border_top">
-            <span class="slds-align_absolute-center slds-p-top_small" onclick={viewAll} style="cursor:pointer">
-                <a>{footerText}</a>
-                &nbsp;
-                <lightning-badge label={imageBadge}></lightning-badge>
-
-            </span>
-        </div>
-
+                </span>
+            </div>
+        </template>
     </lightning-card>
 
 </template>
