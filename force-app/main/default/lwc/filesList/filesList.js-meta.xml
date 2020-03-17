@@ -12,6 +12,7 @@
     <targetConfig targets="lightning__RecordPage">
      <property name="icon" type="String" label="Icon" default="standard:file"/>
       <property name="uploadFiles" type="Boolean" label="Display Upload Files Button" default="false" />
+      <property name="numFiles" type="Integer" label="# of Files Above Fold/Per Page" default="5"/>
     </targetConfig>
 </targetConfigs>
 </LightningComponentBundle>
